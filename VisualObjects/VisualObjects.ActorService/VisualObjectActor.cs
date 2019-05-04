@@ -31,7 +31,10 @@ namespace VisualObjects.ActorService
 
         protected override async Task OnActivateAsync()
         {
-            VisualObject newObject = VisualObject.CreateRandom(this.Id.ToString());
+            String nodeTypeName = this.ActorService.Context.NodeContext.NodeType.ToString();
+
+            //VisualObject newObject = VisualObject.CreateRandom(this.Id.ToString());
+            VisualObject newObject = VisualObject.CreateNodeType(this.Id.ToString(), nodeTypeName);
 
             ActorEventSource.Current.ActorMessage(this, "StateCheck {0}", (await this.StateManager.ContainsStateAsync(StatePropertyName)).ToString());
 

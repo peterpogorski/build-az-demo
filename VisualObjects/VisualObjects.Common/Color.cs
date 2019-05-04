@@ -27,6 +27,10 @@ namespace VisualObjects.Common
             new[] {1.0, 1.0, 1.0, 0.0}
         };
 
+        public static Color green = new Color(19, 235, 19, 1);
+        public static Color red = new Color(235, 19, 19, 1);
+        public static Color blue = new Color(19, 19, 235, 1);
+
         public Color(double r, double g, double b, double a)
         {
             this.R = r;
@@ -70,6 +74,20 @@ namespace VisualObjects.Common
                 b: colorPalette[colorIndex][2] + rand.NextDouble(),
                 a: colorPalette[colorIndex][3] + rand.NextDouble());
         }
+
+        public static Color CreateOnNodeType(String nodeType)
+        {
+            if (nodeType.Equals("nt1"))
+            {
+                return green;
+            } else if(nodeType.Equals("nt11"))
+            {
+                return blue;
+            } else {
+                return red;
+            }
+        }
+ 
 
         public void ToJson(StringBuilder builder)
         {
