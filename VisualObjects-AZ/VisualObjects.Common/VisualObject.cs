@@ -84,6 +84,21 @@ namespace VisualObjects.Common
                 Color.CreateRandom(Color.HistoryColorsPalette, rand));
         }
 
+        public static VisualObject CreateOnNodeType(string name, string nodeType, Random rand = null)
+        {
+            if(rand == null)
+            {
+                rand = new Random(name.GetHashCode());
+            }
+
+            return new VisualObject(
+                name,
+                Speed.CreateRandom(rand),
+                Coordinate.CreateRandom(rand),
+                Color.CreateColorNodeType(nodeType),
+                Color.CreateColorNodeType(nodeType));
+        }
+
         public void Move(bool rotate)
         {
             if (this.LocationHistory.Count < HistoryLength)

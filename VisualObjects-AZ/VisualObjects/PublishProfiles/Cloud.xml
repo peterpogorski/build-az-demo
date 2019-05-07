@@ -16,6 +16,9 @@
                                     StoreName="My" />
 
   -->
-  <ClusterConnectionParameters ConnectionEndpoint="sfazcluster.eastus2.cloudapp.azure.com:19000" X509Credential="true" ServerCertThumbprint="316DDEB1A5D5DB0E26E27ED0C4435676532E07DC" FindType="FindByThumbprint" FindValue="316DDEB1A5D5DB0E26E27ED0C4435676532E07DC" StoreLocation="CurrentUser" StoreName="My" />
+  <ClusterConnectionParameters ConnectionEndpoint="sf3azcluster.eastus2.cloudapp.azure.com:19000" X509Credential="true" ServerCertThumbprint="316DDEB1A5D5DB0E26E27ED0C4435676532E07DC" FindType="FindByThumbprint" FindValue="316DDEB1A5D5DB0E26E27ED0C4435676532E07DC" StoreLocation="CurrentUser" StoreName="My" />
   <ApplicationParameterFile Path="..\ApplicationParameters\Cloud.xml" />
+  <UpgradeDeployment Mode="Monitored" Enabled="false">
+    <Parameters FailureAction="Rollback" Force="True" />
+  </UpgradeDeployment>
 </PublishProfile>

@@ -26,6 +26,10 @@ namespace VisualObjects.Common
             new[] {1.0, 1.0, 0.0, 0.0},
             new[] {1.0, 1.0, 1.0, 0.0}
         };
+ 
+        public static Color az1 = new Color(1.567, 0.555, 0.350, 0.312);
+        public static Color az2 = new Color(0.252, 1.678, 0.334, 0.667);
+        public static Color az3 = new Color(0.878, 0.234, 1.663, 0.450);
 
         public Color(double r, double g, double b, double a)
         {
@@ -69,6 +73,22 @@ namespace VisualObjects.Common
                 g: colorPalette[colorIndex][1] + rand.NextDouble(),
                 b: colorPalette[colorIndex][2] + rand.NextDouble(),
                 a: colorPalette[colorIndex][3] + rand.NextDouble());
+        }
+
+        public static Color CreateColorNodeType(string nodeType, Random rand = null)
+        {
+            if(nodeType.Equals("nt1") || nodeType.Equals("web0"))
+            {
+                return az1;
+            }
+            else if(nodeType.Equals("nt11") || nodeType.Equals("web1"))
+            {
+                return az2;
+            }
+            else
+            {
+                return az3;
+            }
         }
 
         public void ToJson(StringBuilder builder)
